@@ -4,6 +4,8 @@ from colorama import Fore, Back, Style
 from tabulate import tabulate
 import sys,time
 
+POUND = chr(163)
+
 def typewriter(message):
     """
     Create typewriter effect
@@ -23,12 +25,17 @@ def play_amount():
     Get play amount from user so that the total winnings can be calculated
     """
     while True:
-        print("Please enter the play amount per person e.g. 2.50")
-        amount = float(input("Enter the fee here:\n"))
+        print("Please enter the play amount per person")        
     
-    return amount
-    
+        try:
+            amount = float(input("Enter the fee here:\n"))
+        except ValueError:
+            print("Invalid data, please enter a number")
+        else:
+            print (f"The fee per person is {POUND}{amount:.2f}")
+            break
 
+    return amount
 
 def main():
     """
