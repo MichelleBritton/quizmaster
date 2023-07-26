@@ -22,7 +22,8 @@ def typewriter(message):
 
 def play_amount():
     """
-    Get play amount from user so that the total winnings can be calculated
+    Get play amount from user so that the total winnings can be calculated.
+    Raises a ValueError if a number is not entered
     """
     while True:
         print("Please enter the play amount per person")        
