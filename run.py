@@ -38,6 +38,22 @@ def play_amount():
 
     return amount
 
+class Team:
+    """
+    Team Class
+    """
+    def __init__(self, name, size):
+        self.name = name
+        self.size = size
+    
+def add_team():
+    """
+    Add Team name and size
+    """
+    print("")
+    name = input("Enter Team Name here: \n") 
+    size = input("Enter size of Team here: \n")
+
 def main():
     """
     Run all program functions
