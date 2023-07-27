@@ -41,47 +41,52 @@ def play_amount():
 class Team:
     """
     Team Class
-    """
-    def __init__(self, name, size):
-        self.name = name
-        self.size = size
+    """   
+    def __init__(self):
+        self.name = input("Enter Team Name here: \n")      
+        self.size = get_size_from_user()          
     
-    def add_team():
-        """
-        Add Team name and size
-        """
-        while True:
-            add_another_team = input("Do you want to add a Team? Y/N \n")      
-
-            if add_another_team.lower() == 'y': 
-                self.name = input("Enter Team Name here: \n") 
-                while True:
-                    try:
-                        self.size = int(input("Enter size of Team here (max. 4 players per team): \n"))
-                        if size > 4 or size == 0:
-                            print("Please enter a number between 1 and 4")
-                        else:
-                            break
-                    except ValueError:
-                        print("Invalid data, please enter a number")
-                    else: 
-                        continue
-                continue
-
-            elif add_another_team.lower() == 'n':
-                break
+    def display_teams(self):
+        print(f"There are {self.size} people in Team {self.name}")
+    
+def get_size_from_user():
+    while True:
+        try:
+            size = int(input("Enter size of Team here (max. 4 players per team): \n"))
+            if size > 4 or size == 0:
+                print("Please enter a number between 1 and 4")
             else:
-                print("Please type Y or N")
-        
+                break
+        except ValueError:
+            print("Invalid data, please enter a number")
+        else: 
+            continue
+    return size
+
+def add_team():
+    teams = []
+    while True:
+        teams.append(Team())
+        add_another_team = input("Do you want to add a Team? Y/N \n")      
+
+        if add_another_team.lower() == 'y':            
+            continue
+        if add_another_team.lower() == 'n':
+            break
+        else:
+            print("Please type Y or N")   
+    return teams
 
 def main():
     """
     Run all program functions
     """
-    #play_amount()
-    Team.add_team()
+    play_amount()
+    all_teams = add_team()
+    for team in all_teams:
+        team.display_teams()
 
-#typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-#print("Instructions\n\nTo start, enter the amount each person will pay to take part.\nEnter the team names and how many people are in that team.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+print("Instructions\n\nTo start, enter the amount each person will pay to take part.\nEnter the team names and how many people are in that team.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
