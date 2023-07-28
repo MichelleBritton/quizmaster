@@ -85,6 +85,11 @@ def add_team():
     return teams
 
 def winnings(data, cost):
+    """
+    Calculate the winnings pot.
+    Loop through the class objects and add the size of the teams up.
+    Multiply the total size by the play amount to calculate the winnings.
+    """
     total = 0
     for obj in data:
         total += obj.size
