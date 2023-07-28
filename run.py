@@ -81,7 +81,8 @@ def add_team():
         elif add_another_team.lower() == 'n':
             break
         else:
-            print("Invalid input. Please type Y or N")     
+            print("Invalid input. Please type Y or N") 
+            add_team()    
     return teams
 
 def winnings(data, cost):
@@ -96,20 +97,73 @@ def winnings(data, cost):
     print(f"There are {total} people playing\n")
     pot = total * cost
     print(f"The total winnings for this game is {POUND}{pot:.2f}")
+
+def get_questions():
+    """
+    Retrieves questions based on user input
+    """
+    categories = []
+    questions = []
+
+    # Open JSON file
+    with open("quiz.json") as json_file:
+        data = json.load(json_file) 
     
+    print("Please select a category from one of the following options:\n")
+
+    # Extract the Categories and add them to a list and print them out
+    for category in data:
+        categories.append(category)    
+        print(category)
+
+    # Select a category
+    print()
+    category_selection = input("Please enter a category here: \n")   
+    print() 
+
+    quantity = int(input("enter no of questions"))
+
+
+    # Retrieve the questions for the selected category
+    result = data[category_selection]     
+    
+    # Get the values from the dictionary and append them to the questions list
+    values = result.values()
+    for value in values:
+        questions.append(value)
+    
+    # Print the questions and answers    
+    # for i in questions:        
+    #     print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
+
+    
+    count = 0
+    while count < 5:
+        for i in questions:
+            print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
+            count = count + 1
+        
+    
+    
+    
+    
+    
+    
+
     
 def main():
     """
     Run all program functions
     """
-    all_teams = add_team()
-    for team in all_teams:
-        team.display_teams()
-    winnings(all_teams, play_amount())
+    # all_teams = add_team()
+    # for team in all_teams:
+    #     team.display_teams()
+    # winnings(all_teams, play_amount())
+    get_questions()
         
   
 
-typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-print("Instructions\n\nTo start, enter the amount each person will pay to take part.\nEnter the team names and how many people are in that team.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+#typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+#print("Instructions\n\nTo start, enter the amount each person will pay to take part.\nEnter the team names and how many people are in that team.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
