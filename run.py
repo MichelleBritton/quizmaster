@@ -148,7 +148,9 @@ def get_questions():
                 except ValueError:
                     print("Invalid data, please enter a number")
                 else:                
-                    break        
+                    break 
+                    
+            quantity = int(input("Please enter amount of questions here: \n"))       
             
         elif add_cat.lower() == 'n':              
             break
