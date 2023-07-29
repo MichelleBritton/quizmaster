@@ -149,8 +149,13 @@ def get_questions():
                     print("Invalid data, please enter a number")
                 else:                
                     break 
-                    
-            quantity = int(input("Please enter amount of questions here: \n"))       
+
+            quantity = int(input("Please enter amount of questions here: \n"))  
+
+            # Retrieve a number of randomised questions for the selected category and convert dictionary into a list 
+            result = list(data[category_selection].items())
+            temp_questions = random.sample(result, quantity)   
+            questions.extend(temp_questions)      
             
         elif add_cat.lower() == 'n':              
             break
@@ -158,13 +163,13 @@ def get_questions():
             print("Invalid input. Please type Y or N") 
             get_questions()   
         
-        # Retrieve the questions for the selected category
-        result = data[category_selection]     
+        # # Retrieve the questions for the selected category
+        # result = data[category_selection]     
         
-        # Get the values from the dictionary and append them to the questions list
-        values = result.values()
-        for value in values:
-            questions.append(value)
+        # # Get the values from the dictionary and append them to the questions list
+        # values = result.values()
+        # for value in values:
+        #     questions.append(value)
         
         # Print the questions and answers    
         # for i in questions:        
