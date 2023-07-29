@@ -37,13 +37,19 @@ def play_amount():
             break
     return amount
 
-class Team:
+class IterTeam(type):
+    def __iter__(cls):
+        return iter(cls._allTeams)
+
+class Team(metaclass=IterTeam):
     """
     Team Class
     """   
+    _allTeams = []
     def __init__(self):
+        self._allTeams.append(self)
         self.name = input("Enter Team Name here: \n")      
-        self.size = get_size_from_user()         
+        self.size = get_size_from_user()    
     
     def display_teams(self):
         """
@@ -190,19 +196,46 @@ def show_answers(data):
     else: 
         show_answers(data)
     
+def add_scores():
+    """
+    Add scores for each team
+    """
+    keys = []
+    values = []
 
+    # Iterate through each class instance 
+    if __name__ == "__main__":
+        for team in Team:
+            # Add the team name to the keys list
+            keys.append(team.name)
+            # Request score and add it to the values list
+            values.append(int(input(f"Enter the score for Team {team.name}\n")))
+
+    # Create a dictionary from both lists  
+    # Credit: https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/     
+    scores = {}
+    for key in keys:
+        for value in values:
+            scores[key] = value
+            values.remove(value)
+            break
+
+    print(scores)       
+    
+            
 def main():
     """
     Run all program functions
     """
     all_teams = add_team()
-    for team in all_teams:
-        team.display_teams()
-    winnings(all_teams, play_amount())
-    data = get_questions()
-    show_answers(data)
+    # for team in all_teams:
+    #     team.display_teams()
+    # winnings(all_teams, play_amount())
+    # data = get_questions()
+    # show_answers(data)
+    add_scores()
 
-typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+# typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+# print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
