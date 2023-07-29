@@ -163,17 +163,10 @@ def get_questions():
             print("Invalid input. Please type Y or N") 
             get_questions()   
         
-        # # Retrieve the questions for the selected category
-        # result = data[category_selection]     
-        
-        # # Get the values from the dictionary and append them to the questions list
-        # values = result.values()
-        # for value in values:
-        #     questions.append(value)
-        
-        # Print the questions and answers    
-        # for i in questions:        
-        #     print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
+    # Iterate over the values in dictionary to create a new list for each value
+    final_questions = []
+    for q in questions:
+        final_questions.append([x for x in q[1].values()])
 
         
 def main():
