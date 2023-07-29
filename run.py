@@ -1,5 +1,6 @@
 # Import modules
 import json
+import random
 from colorama import Fore, Back, Style
 from tabulate import tabulate
 import sys,time
@@ -109,61 +110,76 @@ def get_questions():
     with open("quiz.json") as json_file:
         data = json.load(json_file) 
     
-    print("Please select a category from one of the following options:\n")
+    while True:
+        add_cat = input("\nDo you want to add a category? Y/N \n")     
+        if add_cat.lower() == 'y':    
+            print("Please select a category from one of the following options:\n")
 
-    # Extract the Categories and add them to a list and print them out
-    for category in data:
-        categories.append(category)    
-        print(category)
+            # Extract the Categories and add them to a list and print them out
+            cat_count = 1
+            for category in data: 
+                print(cat_count, category)
+                cat_count += 1
+            print()
 
-    # Select a category
-    print()
-    category_selection = input("Please enter a category here: \n")   
-    print() 
-
-    quantity = int(input("enter no of questions"))
-
-
-    # Retrieve the questions for the selected category
-    result = data[category_selection]     
-    
-    # Get the values from the dictionary and append them to the questions list
-    values = result.values()
-    for value in values:
-        questions.append(value)
-    
-    # Print the questions and answers    
-    # for i in questions:        
-    #     print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
-
-    
-    count = 0
-    while count < 5:
-        for i in questions:
-            print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
-            count = count + 1
+            # Select a category and the amount of questions for that category
+            while True:    
+                try:
+                    category_selection = int(input("Please type the number of the category here: \n")) 
+                    if category_selection == 1:
+                        category_selection = "Food and Drink"
+                    elif category_selection == 2:
+                        category_selection = "General Knowledge"
+                    elif category_selection == 3:
+                        category_selection = "Movie Trivia"
+                    elif category_selection == 4:
+                        category_selection = "Geography"
+                    elif category_selection == 5:
+                        category_selection = "Sports"
+                    elif category_selection ==6:
+                        category_selection = "Animals"
+                    elif category_selection == 7:
+                        category_selection = "Politics"
+                    elif category_selection == 8:
+                        category_selection = "Quick Fire Questions"
+                    else:
+                        print("Please type a number between 1 and 8")
+                        continue
+                except ValueError:
+                    print("Invalid data, please enter a number")
+                else:                
+                    break        
+            
+        elif add_cat.lower() == 'n':              
+            break
+        else:
+            print("Invalid input. Please type Y or N") 
+            get_questions()   
         
-    
-    
-    
-    
-    
-    
+        # Retrieve the questions for the selected category
+        result = data[category_selection]     
+        
+        # Get the values from the dictionary and append them to the questions list
+        values = result.values()
+        for value in values:
+            questions.append(value)
+        
+        # Print the questions and answers    
+        # for i in questions:        
+        #     print("Question: ", i["question"], "\nAnswer: ", i["answer"], "\n")
 
-    
+        
 def main():
     """
     Run all program functions
     """
-    # all_teams = add_team()
-    # for team in all_teams:
-    #     team.display_teams()
-    # winnings(all_teams, play_amount())
+    all_teams = add_team()
+    for team in all_teams:
+        team.display_teams()
+    winnings(all_teams, play_amount())
     get_questions()
-        
-  
 
 #typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-#print("Instructions\n\nTo start, enter the amount each person will pay to take part.\nEnter the team names and how many people are in that team.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+#print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
