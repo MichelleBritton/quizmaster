@@ -168,6 +168,13 @@ def get_questions():
     for q in questions:
         final_questions.append([x for x in q[1].values()])
 
+    # Iterate over list of final questions to print out in a user friendly way   
+    q_count = 1
+    for f in final_questions:
+        print()
+        print(f"Question {q_count}: ", f[0])
+        print("Answer: ", f[1])
+        q_count += 1
         
 def main():
     """
