@@ -109,7 +109,7 @@ def get_questions():
     # Open JSON file
     with open("quiz.json") as json_file:
         data = json.load(json_file) 
-    
+
     while True:
         add_cat = input("\nDo you want to add a category? Y/N \n")     
         if add_cat.lower() == 'y':    
@@ -148,21 +148,22 @@ def get_questions():
                 except ValueError:
                     print("Invalid data, please enter a number")
                 else:                
-                    break 
+                    break        
 
-            quantity = int(input("Please enter amount of questions here: \n"))  
+            quantity = int(input("Please enter amount of questions here: \n"))
 
             # Retrieve a number of randomised questions for the selected category and convert dictionary into a list 
             result = list(data[category_selection].items())
             temp_questions = random.sample(result, quantity)   
-            questions.extend(temp_questions)      
+            questions.extend(temp_questions) 
             
+            continue
         elif add_cat.lower() == 'n':              
             break
         else:
             print("Invalid input. Please type Y or N") 
-            get_questions()   
-        
+            get_questions()    
+
     # Iterate over the values in dictionary to create a new list for each value
     final_questions = []
     for q in questions:
@@ -173,9 +174,23 @@ def get_questions():
     for f in final_questions:
         print()
         print(f"Question {q_count}: ", f[0])
-        print("Answer: ", f[1])
         q_count += 1
-        
+    
+    return final_questions
+
+def show_answers(data):
+    results = input("Type Y when you are ready to share the answers \n")
+    if results.lower() == 'y':    
+        q_count = 1
+        for f in data:
+            print()
+            print(f"Question {q_count}: ", f[0])
+            print(f"Answer {q_count}: ", f[1])
+            q_count += 1
+    else: 
+        show_answers(data)
+    
+
 def main():
     """
     Run all program functions
@@ -184,9 +199,10 @@ def main():
     for team in all_teams:
         team.display_teams()
     winnings(all_teams, play_amount())
-    get_questions()
+    data = get_questions()
+    show_answers(data)
 
-#typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-#print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+typewriter("Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
