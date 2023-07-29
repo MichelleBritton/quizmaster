@@ -27,13 +27,15 @@ def play_amount():
     Raises a ValueError if a number is not entered
     """
     while True:
-        print("\nPlease enter the play amount per person")    
+        print()
+        print("Please enter the play amount per person")    
         try:
             amount = float(input("Enter the fee here:\n"))
         except ValueError:
             print("Invalid data, please enter a number")
         else:
-            print (f"\nThe fee per person is {POUND}{amount:.2f}\n")
+            print()
+            print (f"The fee per person is {POUND}{amount:.2f}\n")
             break
     return amount
 
@@ -82,7 +84,8 @@ def add_team():
     teams = []
     while True:
         teams.append(Team())
-        add_another_team = input("\nDo you want to add a Team? Y/N \n")     
+        add_another_team = input("\nDo you want to add a Team? Y/N \n")  
+        print()   
         if add_another_team.lower() == 'y':            
             continue
         elif add_another_team.lower() == 'n':
@@ -185,6 +188,7 @@ def get_questions():
     return final_questions
 
 def show_answers(data):
+    print()
     results = input("Type Y when you are ready to share the answers \n")
     if results.lower() == 'y':    
         q_count = 1
@@ -203,6 +207,7 @@ def add_scores():
     keys = []
     values = []
 
+    print()
     # Iterate through each class instance 
     if __name__ == "__main__":
         for team in Team:
@@ -223,10 +228,15 @@ def add_scores():
     return scores
 
 def show_leaderboard(x):
+    """
+    Show the leadboard and declare a winner
+    """
+    print()
     headers = ["Team Name", "Score"]
     print(tabulate(x.items(), headers = headers))
 
     winner = max(x)
+    print()
     print(f"The winning team is {winner}!")
     
             
