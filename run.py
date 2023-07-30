@@ -190,6 +190,10 @@ def get_questions():
     return final_questions
 
 def show_answers(data):
+    """
+    Ask the user if they are ready to show the answers by pressing Y.
+    If anything but Y is pressed showing the question again.
+    """
     print()
     results = input(Fore.GREEN + "Type Y when you are ready to share the answers \n")
     if results.lower() == 'y':    
