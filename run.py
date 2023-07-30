@@ -97,25 +97,6 @@ def add_team():
                   
     return teams
 
-# def add_team():
-#     """
-#     Prompt to ask if you want to add another team and validate the input
-#     Add an instance of the Team class to the teams list
-#     """    
-#     teams = []
-#     while True:
-#         teams.append(Team())
-#         add_another_team = input(Fore.GREEN + "\nDo you want to add a Team? Y/N \n")  
-#         print()   
-#         if add_another_team.lower() == 'y':            
-#             continue
-#         elif add_another_team.lower() == 'n':
-#             break
-#         else:
-#             print(Fore.RED + "Invalid input. Please type Y or N") 
-#             add_team()    
-#     return teams
-
 def winnings(data, cost):
     """
     Calculate the winnings pot.
@@ -294,13 +275,13 @@ def main():
     all_teams = add_team()
     for team in all_teams:
         team.display_teams()
-    # winnings(all_teams, play_amount())
-    # data = get_questions()
-    # show_answers(data)
-    # scores = add_scores()
-    # show_leaderboard(scores)
+    winnings(all_teams, play_amount())
+    data = get_questions()
+    show_answers(data)
+    scores = add_scores()
+    show_leaderboard(scores)
 
-# typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-# print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
