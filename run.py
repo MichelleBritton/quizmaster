@@ -174,7 +174,7 @@ def get_questions():
         elif add_cat.lower() == 'n':              
             break
         else:
-            print("Invalid input. Please type Y or N")   
+            print(Fore.RED + "Invalid input. Please type Y or N")   
 
     # Iterate over the values in dictionary to create a new list for each value
     final_questions = []
