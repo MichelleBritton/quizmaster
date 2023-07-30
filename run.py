@@ -237,11 +237,23 @@ def show_leaderboard(scores):
     headers = ["Team Name", "Score"]
     print(Fore.CYAN + tabulate(scores.items(), headers = headers))
 
-    winner = max(scores, key=scores.get)
-    winning_score = scores[winner]
+    # Find the highest score
+    top_score = max(scores.values())
     
-    print()
-    print(f"The winning team is {winner}!")
+    # Find the teams with the maximum scores
+    winning_teams = [team for team, score in scores.items() if score == top_score]
+
+    print(winning_teams)
+    
+
+
+   
+
+    #winner = max(scores, key=scores.get)
+    #winning_score = scores[winner]
+    
+    # print()
+    # print(f"The winning team is {winner}!")
     
             
 def main():
@@ -249,15 +261,15 @@ def main():
     Run all program functions
     """
     all_teams = add_team()
-    for team in all_teams:
-        team.display_teams()
-    winnings(all_teams, play_amount())
-    data = get_questions()
-    show_answers(data)
+    # for team in all_teams:
+    #     team.display_teams()
+    # winnings(all_teams, play_amount())
+    # data = get_questions()
+    # show_answers(data)
     scores = add_scores()
     show_leaderboard(scores)
 
-typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
-print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
+# typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your pub quiz runs smoothly\n\n")
+# print("Instructions\n\nTo start, enter the team names and how many people are in that team.\nEnter the amount each person will pay to take part.\nSelect a category and how many questions you would like and then all you need to do is read the questions and provide the answers!\nEnter the scores for each team at the end to show the leaderboard\n")
 
 main()
