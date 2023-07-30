@@ -226,18 +226,20 @@ def add_scores():
             scores[key] = value
             values.remove(value)
             break
-
+    print(scores)
     return scores
 
-def show_leaderboard(x):
+def show_leaderboard(scores):
     """
     Show the leadboard and declare a winner
     """
     print()
     headers = ["Team Name", "Score"]
-    print(Fore.CYAN + tabulate(x.items(), headers = headers))
+    print(Fore.CYAN + tabulate(scores.items(), headers = headers))
 
-    winner = max(x)
+    winner = max(scores, key=scores.get)
+    winning_score = scores[winner]
+    
     print()
     print(f"The winning team is {winner}!")
     
