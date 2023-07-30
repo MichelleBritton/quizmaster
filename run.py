@@ -249,12 +249,7 @@ def add_scores():
     # Create a dictionary from both lists
     # Credit:
     # https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/
-    scores = {}
-    for key in keys:
-        for value in values:
-            scores[key] = value
-            values.remove(value)
-            break
+    scores = dict(zip(keys, values))
     return scores
 
 
