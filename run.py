@@ -226,7 +226,6 @@ def add_scores():
             scores[key] = value
             values.remove(value)
             break
-    print(scores)
     return scores
 
 def show_leaderboard(scores):
