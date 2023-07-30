@@ -119,6 +119,8 @@ def get_questions():
     with open("quiz.json") as json_file:
         data = json.load(json_file) 
 
+    print()
+    print("To retrieve the questions, add a category")
     while True:
         add_cat = input(Fore.GREEN + "\nDo you want to add a category? Y/N \n")     
         if add_cat.lower() == 'y':    
