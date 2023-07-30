@@ -215,12 +215,20 @@ def add_scores():
 
     print()
     # Iterate through each class instance 
-    if __name__ == "__main__":
-        for team in Team:
-            # Add the team name to the keys list
-            keys.append(team.name)
-            # Request score and add it to the values list
-            values.append(int(input(Fore.GREEN + f"Enter the score for Team {team.name}:\n")))
+    for team in Team:
+        # Add the team name to the keys list
+        keys.append(team.name)
+        # Request score and add it to the values list
+        while True:
+            try:
+                score = int(input(Fore.GREEN + f"Enter the score for Team {team.name}:\n"))
+                if score > 0:      
+                    break
+                else:          
+                    print(Fore.RED + "Please type a number great than 0")                        
+            except ValueError:
+                print(Fore.RED + "Invalid data, please enter a number")
+        values.append(score)
 
     # Create a dictionary from both lists  
     # Credit: https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/     
