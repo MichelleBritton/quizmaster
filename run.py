@@ -243,18 +243,17 @@ def show_leaderboard(scores):
     # Find the teams with the maximum scores
     winning_teams = [team for team, score in scores.items() if score == top_score]
 
-    print(winning_teams)
-    
-
-
-   
-
-    #winner = max(scores, key=scores.get)
-    #winning_score = scores[winner]
-    
-    # print()
-    # print(f"The winning team is {winner}!")
-    
+    if len(winning_teams) == 1:
+        # Display the winner
+        winner = winning_teams[0]
+        print()
+        print(f"The winning team is {winner}!")
+    else:
+        # Declare a draw and show winning teams
+        print()
+        print(f"It's a draw. The teams with the highest score are: ")
+        for team in winning_teams:
+            print(f"{team}")    
             
 def main():
     """
