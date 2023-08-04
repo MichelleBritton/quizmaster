@@ -207,7 +207,7 @@ def get_questions():
             temp_questions = random.sample(result, quantity)
             questions.extend(temp_questions)
 
-            break
+            continue
         elif add_cat.lower() == 'n':
             break
         else:
