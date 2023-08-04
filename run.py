@@ -274,7 +274,7 @@ def show_leaderboard(scores):
 
     if len(winning_teams) == 1:
         # Display the winner
-        winner = winning_teams[0]        
+        winner = winning_teams[0]
         print(f"\nThe winning team is {winner}!")
     else:
         # Declare a draw and show winning teams
