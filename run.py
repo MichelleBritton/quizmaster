@@ -55,14 +55,30 @@ class Team(metaclass=IterTeam):
 
     def __init__(self):
         self._allTeams.append(self)
-        self.name = input(Fore.GREEN + "Enter Team Name here: \n")
+        self.name = validate_name()
         self.size = get_size_from_user()
+
 
     def display_teams(self):
         """
         Show the number of people in each team
         """
         print(Fore.BLUE + f"There are {self.size} people in Team {self.name}")
+
+
+def validate_name():
+        while True:
+            try:
+                name = input(Fore.GREEN + "Enter Team Name here: \n")
+                if len(name.strip()) == 0:
+                    print(Fore.RED + "Please enter the team name")
+                else:
+                    break
+            except ValueError:
+                print(Fore.RED + "Invalid data, please enter the team name")
+            else:
+                continue
+        return name
 
 
 def get_size_from_user():
