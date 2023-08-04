@@ -41,6 +41,9 @@ def play_amount():
 
 
 class IterTeam(type):
+    """
+    Use iterator method so we can loop through the Team instances
+    """
     def __iter__(cls):
         return iter(cls._allTeams)
 
@@ -185,6 +188,7 @@ def get_questions():
                 else:
                     break
 
+            # Validate quantity input
             while True:
                 try:
                     quantity = int(input(Fore.GREEN + "How many "
