@@ -29,15 +29,13 @@ def play_amount():
     Raises a ValueError if a number is not entered
     """
     while True:
-        print()
-        print(Fore.BLUE + "Please enter the fee per person")
+        print(Fore.BLUE + "\nPlease enter the fee per person")
         try:
             amount = float(input(Fore.GREEN + "Enter the fee here:\n"))
         except ValueError:
-            print(Fore.RED + "Invalid data, please enter a number")
+            print(Fore.RED + "\nInvalid data, please enter a number")
         else:
-            print()
-            print(Fore.BLUE + f"The fee per person is {POUND}{amount:.2f}\n")
+            print(Fore.BLUE + f"\nThe fee per person is {POUND}{amount:.2f}\n")
             break
     return amount
 
@@ -107,10 +105,8 @@ def add_team():
     teams = []
     while True:
         teams.append(Team())
-        print()
         while True:
-            add_another_team = input(Fore.GREEN + "Add another Team? Y/N \n")
-            print()
+            add_another_team = input(Fore.GREEN + "\nAdd another Team? Y/N \n")
             if add_another_team.lower() == 'y':
                 break
             elif add_another_team.lower() == 'n':
@@ -145,21 +141,18 @@ def get_questions():
     with open("quiz.json") as json_file:
         data = json.load(json_file)
 
-    print()
-    print("To retrieve the questions, add a category")
+    print("\nTo retrieve the questions, add a category\n")
     while True:
-        print()
         add_cat = input(Fore.GREEN + "Add a category? Y/N \n")
         if add_cat.lower() == 'y':
             print(Fore.BLUE + "Please enter a number to select a category from"
-                  "the following options:\n")
+                  "the following options:\n\n")
 
             # Extract the Categories and add them to a list and print them out
             cat_count = 1
             for category in data:
                 print(cat_count, category)
                 cat_count += 1
-            print()
 
             # Select a category and the amount of questions for that category
             while True:
@@ -211,8 +204,7 @@ def get_questions():
     # Iterate over list of final questions to print out in a user friendly way
     q_count = 1
     for f in final_questions:
-        print()
-        print(Fore.BLUE + f"Question {q_count}: ", f[0])
+        print(Fore.BLUE + f"\nQuestion {q_count}: ", f[0])
         q_count += 1
 
     return final_questions
@@ -223,13 +215,11 @@ def show_answers(data):
     Ask the user if they are ready to show the answers by pressing Y.
     If anything but Y is pressed showing the question again.
     """
-    print()
-    results = input(Fore.GREEN + "Ready to share the answers? Type Y \n")
+    results = input(Fore.GREEN + "\nReady to share the answers? Type Y \n")
     if results.lower() == 'y':
         q_count = 1
         for f in data:
-            print()
-            print(Fore.BLUE + f"Question {q_count}: ", f[0])
+            print(Fore.BLUE + f"\nQuestion {q_count}: ", f[0])
             print(Fore.MAGENTA + f"Answer {q_count}: ", f[1])
             q_count += 1
     else:
@@ -272,9 +262,8 @@ def show_leaderboard(scores):
     """
     Show the leadboard and declare a winner
     """
-    print()
     headers = ["Team Name", "Score"]
-    print(Fore.CYAN + tabulate(scores.items(), headers=headers))
+    print("\n", Fore.CYAN + tabulate(scores.items(), headers=headers))
 
     # Find the highest score
     top_score = max(scores.values())
@@ -285,13 +274,11 @@ def show_leaderboard(scores):
 
     if len(winning_teams) == 1:
         # Display the winner
-        winner = winning_teams[0]
-        print()
-        print(f"The winning team is {winner}!")
+        winner = winning_teams[0]        
+        print(f"\nThe winning team is {winner}!")
     else:
         # Declare a draw and show winning teams
-        print()
-        print(f"It's a draw. The teams with the highest score are: ")
+        print(f"\nIt's a draw. The teams with the highest score are: ")
         for team in winning_teams:
             print(f"{team}")
 
