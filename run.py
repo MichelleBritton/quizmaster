@@ -148,8 +148,8 @@ def get_questions():
     while True:
         add_cat = input(Fore.GREEN + "Add a category? Y/N \n")
         if add_cat.lower() == 'y':
-            print(Fore.BLUE + "Please enter a number to select a category from"
-                  "the following options:\n\n")
+            print(Fore.BLUE + "Please enter a number to select a category "
+                  "from the following options:\n\n")
 
             # Extract the Categories and add them to a list and print them out
             cat_count = 1
@@ -185,7 +185,17 @@ def get_questions():
                 else:
                     break
 
-            quantity = int(input(Fore.GREEN + "How many questions?: \n"))
+            while True:
+                try:
+                    quantity = int(input(Fore.GREEN + "How many "
+                                         "questions?: \n"))
+                    if quantity < 1 or quantity > 20:
+                        print(Fore.RED + "Please enter a number between 1 and "
+                              "20")
+                    else:
+                        break
+                except ValueError:
+                    print(Fore.RED + "Invalid data, please enter a number")
 
             # Retrieve a number of randomised questions for the selected
             # category and convert dictionary into a list
@@ -193,7 +203,7 @@ def get_questions():
             temp_questions = random.sample(result, quantity)
             questions.extend(temp_questions)
 
-            continue
+            break
         elif add_cat.lower() == 'n':
             break
         else:
