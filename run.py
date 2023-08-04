@@ -308,8 +308,8 @@ def welcome_message():
                "your pub quiz runs smoothly\n\n")
     print("Instructions\n\nTo start, enter the team names and how many people "
           "are in that team.\nEnter the amount each person will pay to take "
-          "part. \n Select a category and how many questions you would like "
-          "and then all you need to do is read the questions and provide the "
+          "part. \nSelect a category and how many questions you would like "
+          "and\nAll you need to do is read the questions and provide the "
           "answers!\n Enter the scores for each team at the end to show the "
           "leaderboard\n")
 
