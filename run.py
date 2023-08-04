@@ -297,10 +297,21 @@ def show_leaderboard(scores):
             print(f"{team}")
 
 
+def welcome_message():
+    typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your "
+           "pub quiz runs smoothly\n\n")
+    print("Instructions\n\nTo start, enter the team names and how many people are "
+        "in that team.\nEnter the amount each person will pay to take part.\n"
+        "Select a category and how many questions you would like and then all "
+        "you need to do is read the questions and provide the answers!\nEnter "
+        "the scores for each team at the end to show the leaderboard\n")
+
+
 def main():
     """
     Run all program functions
     """
+    welcome_message()
     all_teams = add_team()
     for team in all_teams:
         team.display_teams()
@@ -311,12 +322,5 @@ def main():
     show_leaderboard(scores)
 
 
-typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your "
-           "pub quiz runs smoothly\n\n")
-print("Instructions\n\nTo start, enter the team names and how many people are "
-      "in that team.\nEnter the amount each person will pay to take part.\n"
-      "Select a category and how many questions you would like and then all "
-      "you need to do is read the questions and provide the answers!\nEnter "
-      "the scores for each team at the end to show the leaderboard\n")
-
-main()
+if __name__ == "__main__":
+    main()
