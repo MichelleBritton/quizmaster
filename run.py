@@ -64,6 +64,9 @@ class Team(metaclass=IterTeam):
 
 
 def validate_name():
+    """
+    Validate user input for Team Name
+    """
     while True:
         try:
             name = input(Fore.GREEN + "Enter Team Name here: \n")
@@ -284,6 +287,9 @@ def show_leaderboard(scores):
 
 
 def welcome_message():
+    """
+    Display welcome message and instructions
+    """
     typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that "
                "your pub quiz runs smoothly\n\n")
     print("Instructions\n\nTo start, enter the team names and how many people "
