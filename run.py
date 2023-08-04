@@ -58,7 +58,6 @@ class Team(metaclass=IterTeam):
         self.name = validate_name()
         self.size = get_size_from_user()
 
-
     def display_teams(self):
         """
         Show the number of people in each team
@@ -67,18 +66,18 @@ class Team(metaclass=IterTeam):
 
 
 def validate_name():
-        while True:
-            try:
-                name = input(Fore.GREEN + "Enter Team Name here: \n")
-                if len(name.strip()) == 0:
-                    print(Fore.RED + "Please enter the team name")
-                else:
-                    break
-            except ValueError:
-                print(Fore.RED + "Invalid data, please enter the team name")
+    while True:
+        try:
+            name = input(Fore.GREEN + "Enter Team Name here: \n")
+            if len(name.strip()) == 0:
+                print(Fore.RED + "Please enter the team name")
             else:
-                continue
-        return name
+                break
+        except ValueError:
+            print(Fore.RED + "Invalid data, please enter the team name")
+        else:
+            continue
+    return name
 
 
 def get_size_from_user():
@@ -298,13 +297,14 @@ def show_leaderboard(scores):
 
 
 def welcome_message():
-    typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that your "
-           "pub quiz runs smoothly\n\n")
-    print("Instructions\n\nTo start, enter the team names and how many people are "
-        "in that team.\nEnter the amount each person will pay to take part.\n"
-        "Select a category and how many questions you would like and then all "
-        "you need to do is read the questions and provide the answers!\nEnter "
-        "the scores for each team at the end to show the leaderboard\n")
+    typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that "
+               "your pub quiz runs smoothly\n\n")
+    print("Instructions\n\nTo start, enter the team names and how many people "
+          "are in that team.\nEnter the amount each person will pay to take "
+          "part. \n Select a category and how many questions you would like "
+          "and then all you need to do is read the questions and provide the "
+          "answers!\n Enter the scores for each team at the end to show the "
+          "leaderboard\n")
 
 
 def main():
