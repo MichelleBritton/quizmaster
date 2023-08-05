@@ -29,13 +29,13 @@ def play_amount():
     Raises a ValueError if a number is not entered
     """
     while True:
-        print(Fore.BLUE + "\nPlease enter the fee per person")
+        print(Fore.WHITE + "\nPlease enter the fee per person")
         try:
             amount = float(input(Fore.GREEN + "Enter the fee here:\n"))
         except ValueError:
             print(Fore.RED + "\nInvalid data, please enter a number")
         else:
-            print(Fore.BLUE + f"\nThe fee per person is {POUND}{amount:.2f}\n")
+            print(Fore.WHITE + f"\nThe fee per person is {POUND}{amount:.2f}\n")
             break
     return amount
 
@@ -63,7 +63,7 @@ class Team(metaclass=IterTeam):
         """
         Show the number of people in each team
         """
-        print(Fore.BLUE + f"There are {self.size} people in Team {self.name}")
+        print(Fore.WHITE + f"There are {self.size} people in Team {self.name}")
 
 
 def validate_name():
@@ -131,7 +131,7 @@ def winnings(data, cost):
     total = 0
     for obj in data:
         total += obj.size
-    print(Fore.BLUE + f"There are {total} people playing\n")
+    print(Fore.WHITE + f"There are {total} people playing\n")
     pot = total * cost
     print(f"The total winnings for this game is {POUND}{pot:.2f}")
 
@@ -151,7 +151,7 @@ def get_questions():
     while True:
         add_cat = input(Fore.GREEN + "Add a category? Y/N \n")
         if add_cat.lower() == 'y':
-            print(Fore.BLUE + "Please enter a number to select a category "
+            print(Fore.WHITE + "Please enter a number to select a category "
                   "from the following options:\n\n")
 
             # Extract the Categories and add them to a list and print them out
@@ -221,7 +221,7 @@ def get_questions():
     # Iterate over list of final questions to print out in a user friendly way
     q_count = 1
     for f in final_questions:
-        print(Fore.BLUE + f"\nQuestion {q_count}: ", f[0])
+        print(Fore.CYAN + f"\nQuestion {q_count}: ", f[0])
         q_count += 1
 
     return final_questions
@@ -236,7 +236,7 @@ def show_answers(data):
     if results.lower() == 'y':
         q_count = 1
         for f in data:
-            print(Fore.BLUE + f"\nQuestion {q_count}: ", f[0])
+            print(Fore.CYAN + f"\nQuestion {q_count}: ", f[0])
             print(Fore.MAGENTA + f"Answer {q_count}: ", f[1])
             q_count += 1
     else:
@@ -304,13 +304,13 @@ def welcome_message():
     """
     Display welcome message and instructions
     """
-    typewriter(Fore.BLUE + "Welcome to Quiz Master\nAn app to ensure that "
+    typewriter(Fore.WHITE + "Welcome to Quiz Master\nAn app to ensure that "
                "your pub quiz runs smoothly\n\n")
     print("Instructions\n\nTo start, enter the team names and how many people "
           "are in that team.\nEnter the amount each person will pay to take "
           "part. \nSelect a category and how many questions you would like "
           "and\nAll you need to do is read the questions and provide the "
-          "answers!\n Enter the scores for each team at the end to show the "
+          "answers!\nEnter the scores for each team at the end to show the "
           "leaderboard\n")
 
 
