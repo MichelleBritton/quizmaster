@@ -76,6 +76,8 @@ def validate_name():
             name = input(Fore.GREEN + "Enter Team Name here: \n")
             if len(name.strip()) == 0:
                 print(Fore.RED + "Please enter the team name")
+            elif len(name) > 30:
+                print(Fore.RED + "Team name should be less than 30 characters")
             else:
                 break
         except ValueError:
