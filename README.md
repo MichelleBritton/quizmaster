@@ -40,6 +40,7 @@ This section allows you to add teams.  Firstly, you need to enter the team name 
 - Input validation and error checking
     - Add another team? Y/N.  Either Y or N must be entered
     - You cannot submit a blank team name
+    - Team name must be less than 30 characters
     - The team size should be between 1-4 and must be a number
 
 ![Screenshot of Add Team section](documentation/screenshots/screenshot-add-team.png)
