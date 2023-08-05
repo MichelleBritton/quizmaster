@@ -35,7 +35,8 @@ def play_amount():
         except ValueError:
             print(Fore.RED + "\nInvalid data, please enter a number")
         else:
-            print(Fore.WHITE + f"\nThe fee per person is {POUND}{amount:.2f}\n")
+            print(Fore.WHITE + f"\nThe fee per person is {POUND}{amount:.2f}"
+                  "\n")
             break
     return amount
 
