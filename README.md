@@ -38,7 +38,7 @@ This is the initial screen that you will see when the program starts.  It displa
 ### Add Team
 This section allows you to add teams.  Firstly, you need to enter the team name and then you will be asked to enter the size of the team. You can add as many teams as you like by entering Y when asked if you would like to add another team. Once you have finished adding teams you can enter N and it will tell you how many people are in each team.
 - Input validation and error checking
-    - Add another team? Y/N.  Either y or n must be entered
+    - Add another team? Y/N.  Either Y or N must be entered
     - You cannot submit a blank team name
     - The team size should be between 1-4 and must be a number
 
@@ -48,12 +48,12 @@ This section allows you to add teams.  Firstly, you need to enter the team name 
 
 Once you have all your teams added, you can then add the play amount i.e. the fee per person. This will be used to calculate the winnings for the game.
 - Input validation and error checking
- - A number must be entered 
+    - A number must be entered 
 
 ![Screenshot of Add Play Amount section](documentation/screenshots/screenshot-add-play-amount.png)
 
 ### Retrieve the Questions
-To retrieve the question, you are asked if you would like to add a category, when you enter Y you are present with a list of categories to choose from. Once you have made your selection you will be asked how many questions you would like.  You can add as many categories as you like. When you are finished you can enter N when prompted to add another category. 
+To retrieve the question, you are asked if you would like to add a category, when you enter Y you are presented with a list of categories to choose from. Once you have made your selection you will be asked how many questions you would like.  You can add as many categories as you like. When you are finished you can enter N when prompted to add another category. 
 
 ![Screenshot of Retrieve Questions section](documentation/screenshots/screenshot-retrieve-questions.png)
 
@@ -86,7 +86,7 @@ Once all the teams have marked their quiz sheets, the quiz master can then enter
 - When the questions are displayed, they could be broken up into categories
 
 ## Planning
-To begin planning this project I created a flowchart and then took to paper and pen to break each feature down into functions and plan what each function would do and what input would need to be validated.  I had originally planned to use Google Sheets to hold information regarding team names, sizes, scores and questions but decided to switch to JSON as suggested by my mentor.
+To begin planning this project I created a flowchart and then took to paper and pen to break each feature down into functions and plan what each function would do and which inputs would need to be validated.  I had originally planned to use Google Sheets to hold information regarding team names, sizes, scores and questions but decided to switch to JSON as suggested by my mentor.
 
 ### Flowchart
 ![Screenshot of Answers section](documentation/screenshots/flowchart.png)
@@ -161,7 +161,7 @@ I used the Code Institute PEP8 Python Linter to validate my Python code and ensu
 ### Solved Bugs
 1. There was an issue with the validation loop. When asked "Add another Team?" If you pressed anything other than Y or N, it would tell you that it is invalid input but it would then ask you to "Enter a Team Name" rather than asking if you wanted to add another team. I fixed this by re-writing the validation code so that if you pressed Y it would break the loop. If you pressed N, it would return the teams, else it would print an invalid input message and return you to the start of the loop. In my previous code, the else statement would call the add_team function again which is why it was breaking.
 
-2. The issue with the retrieve questions loop was the similar as issue No. 1 above except in the else statement I was using recursion and was calling the get_questions function so I removed this to solve it. 
+2. The issue with the retrieve questions loop was similar to issue No. 1 above except in the else statement I was using recursion and was calling the get_questions function so I removed this to solve it. 
 
 3. The winner declared was incorrect. I found that it was finding the largest key i.e the team name, rather than the largest score. I fixed this by using the get() method to return the value of the key. There was a second bug found when declaring a winner - there could only be one winning team and it would only pick up the first highest score. To fix this, I created a winning_teams list using list comprehension and an if statement to see if the length of the winning team list was equal to 1 and if so, declare a winner, otherwise declare a draw and show the winning teams.
 
