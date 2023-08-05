@@ -12,7 +12,7 @@ Quiz Master is a command line program developed in Python which provides a simpl
 
 - [Features](#features)
     - [Existing Features](#existing-features)
-    - [Future Features](#future-featurest)
+    - [Future Features](#future-features)
 - [Planning](#planning)
     - [Flowchart](#flowchart)
     - [User Stories](#user-stories)
@@ -25,7 +25,7 @@ Quiz Master is a command line program developed in Python which provides a simpl
     - [Solved Bugs](#solved-bugs)
     - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment) 
-- [Credits](#credits)
+- [Content and Resources](#content-and-resources)
 - [Acknowledgments](#acknowledgements)
 
 ## Features
