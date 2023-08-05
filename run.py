@@ -152,7 +152,7 @@ def get_questions():
         add_cat = input(Fore.GREEN + "Add a category? Y/N \n")
         if add_cat.lower() == 'y':
             print(Fore.WHITE + "Please enter a number to select a category "
-                  "from the following options:\n\n")
+                  "from the following options:\n")
 
             # Extract the Categories and add them to a list and print them out
             cat_count = 1
@@ -163,7 +163,7 @@ def get_questions():
             # Select a category and the amount of questions for that category
             while True:
                 try:
-                    cat_select = int(input(Fore.GREEN + "Enter a number:\n"))
+                    cat_select = int(input(Fore.GREEN + "\nEnter a number:\n"))
                     if cat_select == 1:
                         cat_select = "Food and Drink"
                     elif cat_select == 2:
