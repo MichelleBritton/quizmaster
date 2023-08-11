@@ -18,6 +18,7 @@ Quiz Master is a command line program developed in Python which provides a simpl
     - [User Stories](#user-stories)
 - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
+    - [Modules used](#modules-used)
     - [Programs Used](#programs-used)
 - [Testing](#testing)
     - [Manual Testing](#manual-testing)
@@ -102,6 +103,14 @@ To begin planning this project I created a flowchart and then took to paper and 
 ### Languages Used 
 This app was built using Python and utilises JSON for the data.
 
+### Python Modules
+- [json](https://docs.python.org/3/library/json.html) - to load json file
+- [Random](https://docs.python.org/3/library/random.html) - to get random questions from category selection
+- [Colorama](https://pypi.org/project/colorama/) - to add colour to the terminal
+- [Tabulate](https://pypi.org/project/tabulate/) - to present information in a table format
+- [Sys](https://docs.python.org/3/library/sys.html) - required for typewriter effect
+- [Time](https://docs.python.org/3/library/time.html) - required for typewriter effect
+
 ### Programs Used
 
 - [Lucid Chart](https://lucid.app/) - for creating flowcharts
@@ -112,8 +121,6 @@ This app was built using Python and utilises JSON for the data.
 - [TinyPNG](https://tinypng.com/) - to compress images
 - [Shields](https://shields.io/) - to generate badges for inclusion in the README field
 - [PEP8 Python Validator](https://pep8ci.herokuapp.com/) - to validate Python code
-- [Colorama](https://pypi.org/project/colorama/) - to add colour to the terminal
-- [Tabulate](https://pypi.org/project/tabulate/) - to present information in a table format
 - [Birme](https://www.birme.net/?no_resize=true&image_format=webp) - Convert images to WebP format
 
 ## Testing
