@@ -323,7 +323,7 @@ def welcome_message():
 def finish():
     while True:
         while True:
-            exit_program = input(Fore.GREEN + "\nDo you want to exit the"
+            exit_program = input(Fore.GREEN + "\nDo you want to exit the "
                                  "program? Y/N \n")
             if exit_program.lower() == 'y':
                 sys.exit()
