@@ -320,6 +320,19 @@ def welcome_message():
           "leaderboard\n")
 
 
+def finish():
+    while True:
+        while True:
+            exit_program = input(Fore.GREEN + "\nDo you want to exit the"
+                                 "program? Y/N \n")
+            if exit_program.lower() == 'y':
+                sys.exit()
+            elif exit_program.lower() == 'n':
+                continue
+            else:
+                print(Fore.RED + "Invalid input. Please type Y or N")
+
+
 def main():
     """
     Run all program functions
@@ -333,6 +346,7 @@ def main():
     show_answers(data)
     scores = add_scores(data)
     show_leaderboard(scores)
+    finish()
 
 
 if __name__ == "__main__":
