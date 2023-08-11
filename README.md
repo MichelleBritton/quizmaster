@@ -18,14 +18,18 @@ Quiz Master is a command line program developed in Python which provides a simpl
     - [User Stories](#user-stories)
 - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
-    - [Modules used](#modules-used)
+    - [Python Modules](#python-modules)
     - [Programs Used](#programs-used)
 - [Testing](#testing)
     - [Manual Testing](#manual-testing)
     - [PEP8 Python Linter](#pep8-python-linter)
     - [Solved Bugs](#solved-bugs)
     - [Unfixed Bugs](#unfixed-bugs)
-- [Deployment](#deployment) 
+- [Deployment](#deployment)
+    - [Version Control](#version-control)
+    - [Heroku Deployment](#heroku-deployment) 
+    - [Run Locally](#run-locally)
+    - [Fork Project](#fork-project)
 - [Content and Resources](#content-and-resources)
 - [Acknowledgments](#acknowledgements)
 
@@ -177,22 +181,50 @@ I used the Code Institute PEP8 Python Linter to validate my Python code and ensu
 No unfixed bugs.
 
 ## Deployment 
-- Go to heroku.com and log in.
-- Click on "New", in the top right hand corner.
-- Click on "Create new app".
-- Enter the app name and choose your region.
-- Click "Create app"
-- On the following page, click on the "Settings" tab.
-- Click on "Add buildpack"
-- Select Python and click on "Add Buildpack"
-- Click on "Add buildpack"
-- Select Node.js and click on "Add Buildpack"
-- Next, click on the "Deploy" tab
-- Here you can choose your deployment method
-- To connect with GitHub, click on GitHub
-- Find the repository you want to deploy and click on "Connect"
-- Choose a branch to deploy and click on "Deploy Branch"
-- Once it has deployed, you can click on "View"
+### Version Control
+The site was created using the Visual Studio Code editor and pushed to GitHub to the remote repository "quizmaster".
+
+The following git commands were used throughout development to push code to the remote repository:
+
+git add . - This command was used to add files to the staging area before they are committed.
+
+git commit -m “commit message” - This command was used to commit changes to the local repository queue.
+
+git push - This command was used to push all committed code to the remote repository on GitHub.
+
+### Heroku Deployment
+The site was deployed to Heroku using the following steps:
+
+- Navigate to heroku.com and create an account
+- Click the "New" button in the top right corner
+- Select "Create new app"
+- Enter the app name
+- Select Region and click "Create app"
+- Go to the Settings tab and click "Reveal config vars"
+- Add any necessary config vars
+- Click the Deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- Find the repository you want to deploy and click "Connect"
+- Scroll down to Manual deploy and choose the main branch
+- Click "Deploy Branch"
+- The app should now be deployed and you can click on the "View" button to view the live site
+
+### Run Locally
+Navigate to the GitHub Repository you want to clone:
+
+- Click on the "Code" drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the terminal
+- The project will now have been cloned on your local machine for use.
+
+### Fork Project
+Forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork
+- On the top right of the page under the header, click the "Fork" button
+- This will create a duplicate of the full project in your GitHub Repository.
 
 ## Content and Resources
 The following resources were used in order help with any challenges that arose
@@ -203,6 +235,7 @@ The following resources were used in order help with any challenges that arose
 - Geeks for Geeks
 - [Tutoral for typewriter effect](https://learnlearn.uk/python/python-typewriter-code/)
 - [Guidance on how to create a dictionary from two lists](https://www.geeksforgeeks.org/python-convert-two-lists-into-a-dictionary/)
+- [iStockPhoto](https://www.istockphoto.com/) - background image was purchased from iStockPhoto###
 
 ## Acknowledgements
 
