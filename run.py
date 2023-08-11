@@ -122,7 +122,6 @@ def add_team():
                 return teams
             else:
                 print(Fore.RED + "Invalid input. Please type Y or N")
-    return teams
 
 
 def winnings(data, cost):
