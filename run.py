@@ -264,7 +264,8 @@ def add_scores(data):
                 score = int(input(Fore.GREEN + "Enter the score for Team "
                             f"{team.name}:\n"))
                 if score > len(data):
-                    print(Fore.RED + "Score cannot be higher than the number of questions")
+                    print(Fore.RED + "Score cannot be higher than the number"
+                          "of questions")
                 elif score > 0:
                     break
                 else:
