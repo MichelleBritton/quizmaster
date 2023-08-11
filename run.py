@@ -236,6 +236,7 @@ def show_answers(data):
     If anything but Y is pressed showing the question again.
     """
     results = input(Fore.GREEN + "\nReady to share the answers? Type Y \n")
+    print(Fore.WHITE + "Score for each question is one point")
     if results.lower() == 'y':
         q_count = 1
         for f in data:
@@ -246,7 +247,7 @@ def show_answers(data):
         show_answers(data)
 
 
-def add_scores():
+def add_scores(data):
     """
     Add scores for each team
     """
@@ -263,10 +264,12 @@ def add_scores():
             try:
                 score = int(input(Fore.GREEN + "Enter the score for Team "
                             f"{team.name}:\n"))
-                if score > 0:
+                if score > len(data):
+                    print(Fore.RED + "Score cannot be higher than the number of questions")
+                elif score > 0:
                     break
                 else:
-                    print(Fore.RED + "Please type a number great than 0")
+                    print(Fore.RED + "Please type a number greater than 0")
             except ValueError:
                 print(Fore.RED + "Invalid data, please enter a number")
         values.append(score)
@@ -328,7 +331,7 @@ def main():
     winnings(all_teams, play_amount())
     data = get_questions()
     show_answers(data)
-    scores = add_scores()
+    scores = add_scores(data)
     show_leaderboard(scores)
 
 
